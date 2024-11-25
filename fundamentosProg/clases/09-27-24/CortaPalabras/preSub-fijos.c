@@ -3,23 +3,53 @@
 int main()
 {
   char palabra[51];
-  int lenght, i;
-
-  lenght = 0;
+  int i, cantLetras, fromIzq, lenghtConst;
+  
   i = 0;
+  cantLetras = 0;
+  
   scanf("%s", palabra);
 
-  while (palabra[lenght] != 0)
+  //Contamos cuantas letras tiene la palabra y el valor lo guardamos en una variable
+  while (palabra[cantLetras] != 0)
   {
-    lenght++;
+    cantLetras++;
   }
+
+  lenghtConst = cantLetras;
+
+  //Ciclo para los sufijos(¿?)
+  while (cantLetras >= 0)
+  {
+    while (i < cantLetras)
+    {
+      printf("%c", palabra[i]);
+
+      i++;
+    }
+    printf("\n");
+    i = 0;
+    cantLetras--;
+  }
+
+  // printf("%d, %d", i, cantLetras);
+
+  cantLetras = 0;
   
-  while (lenght - 3 >= 0)
+  while (cantLetras <= lenghtConst)
   {
-    printf("%c", palabra[i]);
-    lenght--;
-    i++;
+    while (i < cantLetras)
+    {
+      printf("%c", palabra[i]);
+
+      i++;
+    }
+    printf("\n");
+    i = 0;
+    cantLetras++;
   }
+
+  
   
 
   // printf("%d", lenght);
