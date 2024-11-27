@@ -11,3 +11,4 @@ void AgregarElemento(conjunto *A, int e);
 void EliminarElemento(conjunto *A, int e);
 int PerteneceElemento(conjunto *A, int e);
 void ImprimeConjunto(conjunto *A);
+int EsPrimo(int num);

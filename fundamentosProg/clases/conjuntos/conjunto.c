@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "conjunto.h"
 
 void InicializarConjunto(conjunto *A)
@@ -23,25 +24,24 @@ void EliminarElemento(conjunto *A, int e)
   //Buscar Elemento
   int i, b;
   b = -1;
-  for(i = 0; i < (*A).size && b != -1; i++)
+  for(i = 0; i < (*A).size; i++)
   {
     if((*A).C[i] == e)
     {
       b = i;
+      break;
     }
   }
-
   if(b == -1)
   {
-    printf("El elemento no existe.");
+    printf("\nEl elemento no existe.");
     exit(1);
   }
 
   for(i = b; i < (*A).size - 1; i++)
   {
-    (*A).C[i] = (*A).C[i++];
+    (*A).C[i] = (*A).C[i+1];
   }
-
   (*A).size--;
 }
 
@@ -74,6 +74,32 @@ void ImprimeConjunto(conjunto *A)
   int i;
   for(i = 0; i < (*A).size; i++)
   {
-    printf("%d", (*A).C[i]);
+    printf("\t %d", (*A).C[i]);
   }
+}
+
+int EsPrimo(int num)
+{
+  int i, primo;
+
+  primo = -1;
+
+  for(i = 1; i <= num; i++)
+  {
+    if(num % i == 0 && i != 1 && i != num)
+    {
+      primo = 1;
+    }
+  }
+
+
+
+  if(primo == 1 || num == 0 || num == 1)
+  {
+    return 0;//no es primo
+  }else
+  {
+    return 1;//es primo
+  }
+
 }
